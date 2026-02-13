@@ -30,7 +30,16 @@ export const ModalWindow = styled(motion.div)`
   @media (max-width: 1080px) {
     height: 100%;
   }
-  /* .simplebar-track {
+  > div {
+    flex-grow: 1;
+  }
+  .simplebar-content-wrapper {
+    height: 100% !important;
+  }
+  .simplebar-content {
+    height: 100%;
+  }
+  .simplebar-track {
     right: 5px;
   }
   .simplebar-vertical {
@@ -41,7 +50,7 @@ export const ModalWindow = styled(motion.div)`
   }
   .simplebar-visible::before {
     opacity: 1;
-  } */
+  }
 `;
 
 export const ModalMessage = styled.div`

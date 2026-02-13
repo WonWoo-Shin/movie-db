@@ -38,11 +38,10 @@ import { convertDate } from "../../utils/convertDate";
 import { ModalRecommend } from "./modalRecommend/ModalRecommend";
 import { ModalEpisode } from "./modalEpisode/ModalEpisode";
 import { WatchVideo } from "./WatchVIdeo";
-import { AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { watchVideoStateFamily } from "../../atom";
 import { ModalInfo } from "./modalInfo/ModalInfo";
-import SimpleBar from "simplebar-react";
 
 interface IProps {
   itemId: IItemList["id"];
