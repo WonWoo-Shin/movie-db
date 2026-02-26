@@ -11,7 +11,7 @@ import { createImage } from "../utils/createImgae";
 import { useQuery } from "@tanstack/react-query";
 import { getGenre } from "../api";
 import { AnimatePresence, Variants } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const previewVariant: Variants = {
   initial: {
@@ -53,8 +53,6 @@ export const ContentsPannel = React.memo(
     isRightEnd,
     isTransition,
   }: IProps) => {
-    const location = useLocation();
-
     const [showPreview, setShowPreview] = useState(false);
     const delayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -85,10 +83,7 @@ export const ContentsPannel = React.memo(
         onMouseEnter={pannelMouseEnter}
         onMouseLeave={pannelMouseLeave}
       >
-        <Link
-          to={`modal/${media_type}/${id}`}
-          state={{ backgroundLocation: location }}
-        >
+        <Link to={`modal/${media_type}/${id}`}>
           <PannelImage
             src={createImage("w500", backdrop_path ?? poster_path)}
           />

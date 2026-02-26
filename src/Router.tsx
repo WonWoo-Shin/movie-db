@@ -1,8 +1,9 @@
-import { Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Home } from "./Components/Home";
 import { SearchResults } from "./Components/searchResult/SearchResults";
 import { ItemModal } from "./Components/modal/ItemModal";
 import { AnimatePresence } from "framer-motion";
+import { Test } from "./test";
 
 export const Router = () => {
   const location = useLocation();
@@ -18,22 +19,33 @@ export const Router = () => {
   //   </Routes>
   // );
 
-  return (
-    <>
-      <Routes location={state?.backgroundLocation || location}>
-        <Route path="/" element={<Home />} />
-        <Route path="/search/:keyword" element={<SearchResults />} />
-      </Routes>
+  // return (
+  //   <>
+  //     <Routes location={state?.backgroundLocation || location}>
+  //       <Route path="/" element={<Home />} />
+  //       <Route path="/search/:keyword" element={<SearchResults />} />
+  //       <Route path="modal/:mediaType/:itemId" element={<ItemModal />} />
+  //     </Routes>
 
-      <AnimatePresence
-        onExitComplete={() => document.body.classList.remove("modal-open")}
-      >
-        {state?.backgroundLocation && (
-          <Routes location={location}>
-            <Route path="/modal/:mediaType/:itemId" element={<ItemModal />} />
-          </Routes>
-        )}
-      </AnimatePresence>
-    </>
+  //     <AnimatePresence
+  //       onExitComplete={() => document.body.classList.remove("modal-open")}
+  //     >
+  //       {state?.backgroundLocation && (
+  //         <Routes location={location}>
+  //           <Route path="/modal/:mediaType/:itemId" element={<ItemModal />} />
+  //         </Routes>
+  //       )}
+  //     </AnimatePresence>
+  //   </>
+  // );
+  return (
+    <Routes>
+      <Route path="/" element={<Home />}>
+        <Route path="modal/:mediaType/:itemId" element={<ItemModal />} />
+      </Route>
+      <Route path="search/:keyword" element={<SearchResults />}>
+        <Route path="modal/:mediaType/:itemId" element={<ItemModal />} />
+      </Route>
+    </Routes>
   );
 };

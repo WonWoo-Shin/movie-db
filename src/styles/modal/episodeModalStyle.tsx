@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ModalWindow } from "./modalStyle";
 
 export const EpisodeModalWindow = styled(ModalWindow)`
+  overflow-y: auto;
   max-width: 720px;
   height: calc(100vh - 150px);
   padding: 30px;

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import {
   ResultsList,
   ResultsName,
@@ -109,14 +109,15 @@ export const SearchResults = () => {
           </ResultsName>
           {content()}
         </ResultsWrapper>
-        <AnimatePresence
+        {/* <AnimatePresence
           onExitComplete={() => {
             const body = document.body;
             body.classList.remove("modal-open");
           }}
         >
           {itemId && <ItemModal itemId={itemId} basePath={basePath} />}
-        </AnimatePresence>
+        </AnimatePresence> */}
+        <Outlet />
       </Wrapper>
     </>
   );
