@@ -47,11 +47,7 @@ const modalWindowVariant: Variants = {
   },
 };
 
-interface IProps {
-  basePath?: string;
-}
-
-export const ItemModal = ({ basePath }: IProps) => {
+export const ItemModal = () => {
   const rootModal = document.getElementById("root-modal");
   if (!rootModal) return null;
 
@@ -63,8 +59,9 @@ export const ItemModal = ({ basePath }: IProps) => {
   const body = document.body;
   body.classList.add("modal-open"); // body css에서 scroll 없애기
 
+  const basePath = location.pathname.split("/modal")[0];
   const closeModal = () => {
-    navigate(basePath ?? "/");
+    navigate(!!basePath ? basePath : "/"); // 모달창을 열기 전 페이지로 돌아가기
   };
 
   const simpleBarRef = useRef<HTMLDivElement>(null);

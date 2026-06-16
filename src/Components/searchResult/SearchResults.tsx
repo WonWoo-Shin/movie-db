@@ -1,4 +1,4 @@
-import { Outlet, useParams } from "react-router-dom";
+import { useOutlet, useParams } from "react-router-dom";
 import {
   ResultsList,
   ResultsName,
@@ -11,9 +11,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getMovieSearch, getTvSearch } from "../../api";
 import { IItemListResults } from "../../type";
 
-import { ItemModal } from "../modal/ItemModal";
 import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Header } from "../header/Header";
 import { ContentsPannel } from "../ContentsPannel";
 import { useRecoilValue } from "recoil";
@@ -22,7 +21,9 @@ import { useAdjustShowItem } from "../../hooks/useAdjustShowItem";
 import { addMediatype } from "../../utils/addMediaType";
 
 export const SearchResults = () => {
-  const { keyword, itemId } = useParams();
+  const { keyword } = useParams();
+
+  const modalOutlet = useOutlet();
 
   const {
     data: searchTvData,
@@ -49,13 +50,6 @@ export const SearchResults = () => {
     ...(searchMovieData?.results ?? []),
   ];
   const isLoading = isTvLoading || isMovieLoading;
-
-  const [basePath, setBasePath] = useState("");
-  useEffect(() => {
-    if (keyword) {
-      setBasePath(`/search/${keyword}`);
-    }
-  }, [keyword]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -109,15 +103,14 @@ export const SearchResults = () => {
           </ResultsName>
           {content()}
         </ResultsWrapper>
-        {/* <AnimatePresence
+        <AnimatePresence
           onExitComplete={() => {
             const body = document.body;
             body.classList.remove("modal-open");
           }}
         >
-          {itemId && <ItemModal itemId={itemId} basePath={basePath} />}
-        </AnimatePresence> */}
-        <Outlet />
+          {modalOutlet}
+        </AnimatePresence>
       </Wrapper>
     </>
   );
