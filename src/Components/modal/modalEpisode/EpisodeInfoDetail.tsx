@@ -20,7 +20,6 @@ import { CustomArrow } from "../../CustomArrow";
 import { ContentsMessage } from "../../../styles/modal/modalStyle";
 import { createImage } from "../../../utils/createImgae";
 import { VideoListItem } from "../modalVideos/VideoListItem";
-import SimpleBar from "simplebar-react";
 
 interface IProps {
   itemId: IItemList["id"];
