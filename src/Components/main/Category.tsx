@@ -10,7 +10,7 @@ import { addMediatype } from "../../utils/addMediaType";
 interface ICategoryProps {
   isSuccess?: boolean;
   categoryName: string;
-  getFn: (mediaType?: TMediaType, time?: TTime) => Promise<any>;
+  getFn: (mediaType?: TMediaType, time?: TTime) => Promise<IItemListResults>;
   mediaType?: TMediaType;
   tabButton?: "time" | "mediaType";
   time?: TTime;
