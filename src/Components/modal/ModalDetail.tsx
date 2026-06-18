@@ -46,7 +46,7 @@ import { ModalInfo } from "./modalInfo/ModalInfo";
 interface IProps {
   itemId: IItemList["id"];
   closeModal: () => void;
-  basePath?: string;
+  basePath: string;
 }
 
 interface IParams {

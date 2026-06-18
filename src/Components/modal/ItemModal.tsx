@@ -59,10 +59,14 @@ export const ItemModal = () => {
   const body = document.body;
   body.classList.add("modal-open"); // body css에서 scroll 없애기
 
-  const basePath = location.pathname.split("/modal")[0];
+  // 모달창을 열기 전 페이지로 돌아가기
+  const internalPath = location.pathname.replace(import.meta.env.BASE_URL, "");
+  const basePath = internalPath.split("/modal")[0];
+
   const closeModal = () => {
-    navigate(!!basePath ? basePath : "/"); // 모달창을 열기 전 페이지로 돌아가기
+    navigate(!!basePath ? basePath : "/");
   };
+  // 모달창을 열기 전 페이지로 돌아가기
 
   const simpleBarRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({ container: simpleBarRef });

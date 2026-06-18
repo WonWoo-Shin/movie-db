@@ -55,7 +55,7 @@ export const ModalRecommend = ({ itemId, mediaType, basePath }: IProps) => {
               <img
                 src={createImage(
                   "w500",
-                  result.backdrop_path ?? result.poster_path
+                  result.backdrop_path ?? result.poster_path,
                 )}
               />
             </ItemImage>
