@@ -19,11 +19,18 @@
 
 - OTT 서비스형 horizontal carousel을 직접 구현하여 많은 컨텐츠를 빠르게 탐색할 수 있도록 UI 설계
 <img width="1633" height="396" alt="Image" src="https://github.com/user-attachments/assets/fc0a1014-24e7-46c2-97ee-e51b797a339b" />
+<br />
 
 - Framer motion을 활용하여 UI 애니메이션 구현
 <img width="1440" height="559" alt="Image" src="https://github.com/user-attachments/assets/7f80e6ef-2efb-4647-9f7e-543e00ee954a" />
-<img width="798" height="613" alt="Image" src="https://github.com/user-attachments/assets/fc86de26-6cb7-4682-8e28-9fa9f7beffd1" />
+<br />
 
+- React Router를 활용해 페이지를 고유 URL로 분리
+```ts
+<Route path="/" element={<Home />}>
+  <Route path="modal/:mediaType/:itemId" element={<ItemModal />} />
+</Route>
+```
 
 ### 📕 Demo
 
