@@ -1,50 +1,22 @@
-# React + TypeScript + Vite
+# movie database
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+영화, 시리즈 api 기반 콘텐츠 탐색 및 상세 정보 제공 서비스
 
-Currently, two official plugins are available:
+### 🔧 개발 환경
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 프로그래밍 언어 : <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white"/>
 
-## Expanding the ESLint configuration
+- 프레임워크 : <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white"/>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 라이브러리 :  <img src="https://img.shields.io/badge/tanstack query-000000?style=flat&logo=tanstack&logoColor=white"/> <img src="https://img.shields.io/badge/React router-CA4245?style=flat&logo=reactrouter&logoColor=white"/> <img src="https://img.shields.io/badge/Recoil-3578E5?style=flat&logo=Recoil&logoColor=white"/>
 
-- Configure the top-level `parserOptions` property like this:
+- 번들러 : <img src="https://img.shields.io/badge/Vite-646CFF?style=flat&logo=Vite&logoColor=white"/>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- 스타일링 : <img src="https://img.shields.io/badge/styled components-DB7093?style=flat&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/framer-0055FF?style=flat&logo=framer&logoColor=white"/>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 📌 주요 기능
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- OTT 서비스형 horizontal carousel을 직접 구현하여 많은 컨텐츠를 빠르게 탐색할 수 있도록 UI 설계
+
+<img width="1633" height="396" alt="Image" src="https://github.com/user-attachments/assets/fc0a1014-24e7-46c2-97ee-e51b797a339b" />
