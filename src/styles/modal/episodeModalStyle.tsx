@@ -25,6 +25,7 @@ export const ModalHeader = styled.header`
 `;
 
 export const StillImage = styled.div`
+  max-height: 340px;
   margin-bottom: 30px;
   padding: 0 50px;
   img {
