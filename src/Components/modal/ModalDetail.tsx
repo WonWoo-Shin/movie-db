@@ -93,6 +93,7 @@ export const ModalDetail = ({ itemId, basePath, closeModal }: IProps) => {
   const mainVideos = videos?.length ? videos : preVideos;
   const mainTraier = mainVideos?.findLast((video) => video.type === "Trailer");
 
+  //줄거리 더보기 유무
   const [isOverviewOverFlow, setIsOverviewOverFlow] = useState(true);
   const overviewRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -105,6 +106,7 @@ export const ModalDetail = ({ itemId, basePath, closeModal }: IProps) => {
       setIsOverviewOverFlow(scrollHeight > offsetHeight);
     }
   }, [detailData]);
+  //줄거리 더보기 유무
 
   const [currentTab, setCurrentTab] = useState<TCurrentTab>(
     mediaType === "tv" ? "episode" : "video",

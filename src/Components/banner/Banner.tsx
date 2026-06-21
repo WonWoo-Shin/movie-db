@@ -1,5 +1,6 @@
 import Slider, { Settings } from "react-slick";
 import {
+  BannerError,
   BannerSlider,
   SliderContainer,
   SliderDots,
@@ -31,21 +32,31 @@ export const Banner = () => {
     nextArrow: <SlideArrow position={"right"} />,
   };
 
-  const { data: trendingData } = useQuery<IItemListResults>({
-    queryKey: ["요즘 대세", "day"],
-    queryFn: () => getTrending("all", "day"),
-    staleTime: 60 * 60 * 1000,
-  });
+  const { data: trendingData, isError: isTrendingError } =
+    useQuery<IItemListResults>({
+      queryKey: ["요즘 대세", "day"],
+      queryFn: () => getTrending("all", "day"),
+      staleTime: 60 * 60 * 1000,
+    });
 
   return (
     <SliderContainer>
-      <BannerSlider>
-        <Slider {...settings}>
-          {trendingData?.results.slice(0, 5).map((result) => (
-            <SliderItem key={result.id} {...result} />
-          ))}
-        </Slider>
-      </BannerSlider>
+      {isTrendingError ? (
+        <BannerError>
+          <span>
+            데이터를 불러오지 못했습니다.
+            <br /> 잠시 후 다시 시도해주세요
+          </span>
+        </BannerError>
+      ) : (
+        <BannerSlider>
+          <Slider {...settings}>
+            {trendingData?.results.slice(0, 5).map((result) => (
+              <SliderItem key={result.id} {...result} />
+            ))}
+          </Slider>
+        </BannerSlider>
+      )}
     </SliderContainer>
   );
 };

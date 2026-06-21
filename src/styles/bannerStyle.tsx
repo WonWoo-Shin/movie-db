@@ -7,6 +7,23 @@ export const SliderContainer = styled.div`
   padding-bottom: 42.5%;
 `;
 
+export const BannerError = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.theme.background.secondary};
+  span {
+    font-size: 30px;
+    line-height: 150%;
+    color: ${(props) => props.theme.font.paragraph};
+  }
+`;
+
 export const BannerSlider = styled.div`
   position: absolute;
   top: 0;
@@ -74,10 +91,8 @@ export const BannerImage = styled.div<{ $bgImage: string }>`
   height: 100%;
   padding-right: var(--padding-width);
   background-size: cover;
-  background-image: linear-gradient(
-      rgba(18, 18, 18, 0.5) 0%,
-      rgba(18, 18, 18, 0) 20%
-    ),
+  background-image:
+    linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 20%),
     linear-gradient(rgba(18, 18, 18, 0) 75%, rgba(18, 18, 18, 0.5) 100%),
     linear-gradient(90deg, rgba(18, 18, 18, 0) 90%, rgba(18, 18, 18, 0.2) 100%),
     url(${(props) => props.$bgImage});
